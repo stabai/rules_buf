@@ -1,0 +1,17 @@
+# Override http_archive for local testing
+local_repository(
+    name = "com_github_actualhq_rules_buf",
+    path = "../..",
+)
+
+#---SNIP--- Below here is re-used in the workspace snippet published on releases
+
+######################
+# rules_buf setup #
+######################
+
+load("@com_github_actualhq_rules_buf//buf:repositories.bzl", "buf_register_toolchains", "rules_buf_dependencies")
+
+rules_buf_dependencies()
+
+buf_register_toolchains(buf_version = "1.4.0")

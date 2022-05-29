@@ -1,0 +1,5 @@
+load("@com_github_actualhq_rules_buf//buf/private:cli.bzl", "buf_cli")
+
+buf_cli(
+    name = "buf_cli",
+)

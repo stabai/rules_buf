@@ -1,0 +1,22 @@
+load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+load("@bazel_skylib//rules:write_file.bzl", "write_file")
+load(":buf_versions.bzl", "LATEST_VERSION")
+
+write_file(
+    name = "latest_version",
+    out = "latest_version.sh",
+    content = ["echo \"%s\"" % LATEST_VERSION],
+    is_executable = True,
+)
+
+bzl_library(
+    name = "buf_versions",
+    srcs = ["buf_versions.bzl"],
+    visibility = ["//buf:__subpackages__"],
+)
+
+bzl_library(
+    name = "toolchains_repo",
+    srcs = ["toolchains_repo.bzl"],
+    visibility = ["//buf:__subpackages__"],
+)

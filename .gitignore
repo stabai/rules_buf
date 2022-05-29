@@ -1,0 +1,5 @@
+bazel-*
+.idea
+.ijwb
+.vscode
+.DS_STORE
