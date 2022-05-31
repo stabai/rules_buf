@@ -1,10 +1,6 @@
 workspace(
-    name = "com_github_actualhq_rules_buf",
+    name = "com_github_stabai_rules_buf",
 )
-
-load("@bazel_skylib//:workspace.bzl", "bazel_skylib_workspace")
-
-bazel_skylib_workspace()
 
 load(":internal_deps.bzl", "rules_buf_internal_deps")
 

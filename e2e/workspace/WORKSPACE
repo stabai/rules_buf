@@ -1,6 +1,6 @@
 # Override http_archive for local testing
 local_repository(
-    name = "com_github_actualhq_rules_buf",
+    name = "com_github_stabai_rules_buf",
     path = "../..",
 )
 
@@ -10,7 +10,7 @@ local_repository(
 # rules_buf setup #
 ######################
 
-load("@com_github_actualhq_rules_buf//buf:repositories.bzl", "buf_register_toolchains", "rules_buf_dependencies")
+load("@com_github_stabai_rules_buf//buf:repositories.bzl", "buf_register_toolchains", "rules_buf_dependencies")
 
 rules_buf_dependencies()
 

@@ -1,0 +1,12 @@
+"""
+Predefined buf plugins for users.
+"""
+
+load("//buf/private:plugin.bzl", "remote_buf_plugin")
+
+remote_buf_plugin(
+    name = "go",
+    opt = ["paths=source_relative"],
+    remote = "buf.build/protocolbuffers/plugins/go:v1.28.0-1",
+    visibility = ["//visibility:public"],
+)

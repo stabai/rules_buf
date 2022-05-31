@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package helloworld.v1;
+
+/** Provides simple hello world functionality to help in testing infrastructure. */
+service HelloWorldService {
+  /** Creates a greeting with the requested parameters. */
+  rpc CreateGreeting(CreateGreetingRequest) returns (CreateGreetingResponse);
+}
+
+/** Contains the parameters to create a greeting. */
+message CreateGreetingRequest {
+  /** The greeting to use (e.g. "hello" or "sup"). */
+  string greeting = 1;
+  /** The audience to be greeted (e.g. "world" or "dude"). */
+  string audience = 2;
+}
+
+/** Contains a rendered greeting. */
+message CreateGreetingResponse {
+  /** The rendered text to display to the user. */
+  string text = 1;
+}

@@ -20,3 +20,43 @@ bzl_library(
     srcs = ["toolchains_repo.bzl"],
     visibility = ["//buf:__subpackages__"],
 )
+
+bzl_library(
+    name = "cli",
+    srcs = ["cli.bzl"],
+    visibility = ["//buf:__subpackages__"],
+)
+
+bzl_library(
+    name = "providers",
+    srcs = ["providers.bzl"],
+    visibility = ["//buf:__subpackages__"],
+)
+
+bzl_library(
+    name = "generate",
+    srcs = ["generate.bzl"],
+    visibility = ["//buf:__subpackages__"],
+    deps = [":providers"],
+)
+
+bzl_library(
+    name = "module",
+    srcs = ["module.bzl"],
+    visibility = ["//buf:__subpackages__"],
+    deps = [":providers"],
+)
+
+bzl_library(
+    name = "plugin",
+    srcs = ["plugin.bzl"],
+    visibility = ["//buf:__subpackages__"],
+    deps = [":providers"],
+)
+
+bzl_library(
+    name = "workspace",
+    srcs = ["workspace.bzl"],
+    visibility = ["//buf:__subpackages__"],
+    deps = [":providers"],
+)

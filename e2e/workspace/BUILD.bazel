@@ -1,5 +1,20 @@
-load("@com_github_actualhq_rules_buf//buf/private:cli.bzl", "buf_cli")
+load("@com_github_stabai_rules_buf//buf:defs.bzl", "buf_cli", "buf_generate", "buf_workspace")
 
 buf_cli(
     name = "buf_cli",
+)
+
+buf_workspace(
+    name = "buf_workspace",
+    modules = ["//proto"],
+    work_yaml_file = "buf.work.yaml",
+)
+
+buf_generate(
+    name = "buf_generate",
+    go_package_prefix = "github.com/stabai/rules_buf/gen/proto/go",
+    plugins = [
+        "@com_github_stabai_rules_buf//buf/plugins:go",
+    ],
+    workspace = ":buf_workspace",
 )

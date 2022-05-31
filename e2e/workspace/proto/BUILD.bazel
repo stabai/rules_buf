@@ -1,0 +1,10 @@
+load("@com_github_stabai_rules_buf//buf:defs.bzl", "buf_module")
+
+buf_module(
+    name = "proto",
+    srcs = glob(
+        ["**/*.proto"],
+    ),
+    config_file = "buf.yaml",
+    visibility = ["//:__pkg__"],
+)

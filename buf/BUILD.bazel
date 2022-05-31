@@ -1,4 +1,5 @@
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+load("//buf/private:cli.bzl", "buf_cli")
 
 # This is the target rule authors should put in their "toolchains"
 # attribute in order to get a buf runtime for the correct
@@ -18,7 +19,14 @@ bzl_library(
     name = "defs",
     srcs = ["defs.bzl"],
     visibility = ["//visibility:public"],
-    deps = ["//buf/private:binary"],
+    deps = [
+        "//buf/private:cli",
+        "//buf/private:generate",
+        "//buf/private:module",
+        "//buf/private:plugin",
+        "//buf/private:providers",
+        "//buf/private:workspace",
+    ],
 )
 
 bzl_library(
@@ -37,4 +45,8 @@ bzl_library(
     name = "toolchain",
     srcs = ["toolchain.bzl"],
     visibility = ["//visibility:public"],
+)
+
+buf_cli(
+    name = "cli",
 )
